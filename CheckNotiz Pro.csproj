@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>CheckNotiz_Pro</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x86</Platforms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="add.png" />
+    <None Remove="add_white.png" />
+    <None Remove="aufholen_white.png" />
+    <None Remove="box.png" />
+    <None Remove="cancel.png" />
+    <None Remove="checknotiz.png" />
+    <None Remove="closebutton.png" />
+    <None Remove="cloud.png" />
+    <None Remove="copy.png" />
+    <None Remove="darkbotton.png" />
+    <None Remove="delete.png" />
+    <None Remove="delete_white.png" />
+    <None Remove="dns.png" />
+    <None Remove="done.png" />
+    <None Remove="Fonts\psans.ttf" />
+    <None Remove="Fonts\psans_bold.ttf" />
+    <None Remove="inputbox.png" />
+    <None Remove="maximizebutton.png" />
+    <None Remove="minimizebutton.png" />
+    <None Remove="notes.png" />
+    <None Remove="notizzettel.png" />
+    <None Remove="onlineSpeichern_white.png" />
+    <None Remove="refresh_white.png" />
+    <None Remove="reset.png" />
+    <None Remove="settings.png" />
+    <None Remove="settings_white.png" />
+    <None Remove="SetupSections\continue.png" />
+    <None Remove="shield.png" />
+    <None Remove="speed.png" />
+    <None Remove="tools.png" />
+    <None Remove="tools_white.png" />
+    <None Remove="warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.1.10" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="add.png" />
+    <Resource Include="add_white.png" />
+    <Resource Include="aufholen_white.png" />
+    <Resource Include="box.png" />
+    <Resource Include="cancel.png" />
+    <Resource Include="checknotiz.png" />
+    <Resource Include="closebutton.png" />
+    <Resource Include="cloud.png" />
+    <Resource Include="copy.png" />
+    <Resource Include="darkbotton.png" />
+    <Resource Include="delete.png" />
+    <Resource Include="delete_white.png" />
+    <Resource Include="dns.png" />
+    <Resource Include="done.png" />
+    <Resource Include="Fonts\psans.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\psans_bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="inputbox.png" />
+    <Resource Include="maximizebutton.png" />
+    <Resource Include="minimizebutton.png" />
+    <Resource Include="notes.png" />
+    <Resource Include="notizzettel.png" />
+    <Resource Include="onlineSpeichern_white.png" />
+    <Resource Include="refresh_white.png" />
+    <Resource Include="reset.png" />
+    <Resource Include="settings.png" />
+    <Resource Include="settings_white.png" />
+    <Resource Include="SetupSections\continue.png" />
+    <Resource Include="shield.png" />
+    <Resource Include="speed.png" />
+    <Resource Include="tools.png" />
+    <Resource Include="tools_white.png" />
+    <Resource Include="warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
