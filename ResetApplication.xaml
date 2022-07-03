@@ -1,0 +1,49 @@
+﻿<Window x:Class="CheckNotiz_Pro.ResetApplication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckNotiz_Pro"
+        mc:Ignorable="d"
+        Title="DeletionRequest" Height="450" Width="800" AllowsTransparency="True"
+        WindowStyle="None" Background="{x:Null}" WindowState="Maximized" Topmost="True"
+        WindowStartupLocation="CenterOwner" Loaded="Window_Loaded"
+        >
+    <Grid>
+        <Image x:Name="bkg" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Width="422" Height="190">
+            <Image.Effect>
+                <BlurEffect x:Name="backBlur" Radius="30"/>
+            </Image.Effect>
+        </Image>
+        <Grid>
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#CC000000"/>
+                    <GradientStop Color="#F22B0000" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+            <Border x:Name="box" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B2C5C5C5" CornerRadius="10" Padding="10" Height="190" Width="422" RenderTransformOrigin="0.5,0.5">
+                <Grid x:Name="dialog_box">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="60*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/delete.png" Margin="0,5,6,130"></Image>
+                    <TextBlock FontFamily="{DynamicResource Product Sans}" HorizontalAlignment="Left" Width="418" Height="77" VerticalAlignment="Top" Margin="-8,62,0,0" TextAlignment="Center" Grid.ColumnSpan="2"><Run Text="Alle Speicherinhalte (inkl. Einstellungen und der Speicherdatei) werden"/><LineBreak/><Run Text="UNWIDERRUFLICH gelöscht."/><LineBreak/><Run/><LineBreak/><Run Text="Dieser Vorgang kann nicht rückgängig"/><LineBreak/><Run Text="gemacht werden"/></TextBlock>
+                    <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Height="39" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" Margin="0,8,0,0" Width="322" TextAlignment="Center" Grid.Column="1"><Run Text="Wollen Sie die "/><Run Text="Anwendung"/><Run Text=" WIRKLICH"/><Run Text=" "/><LineBreak/><Run Text="zurücksetzen?"/></TextBlock>
+                    <Button x:Name="btn_resume" FontFamily="{DynamicResource Product Sans Bold}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="84" Content="Nein" Foreground="White" Margin="0,0,112,0" Click="btn_resume_Click" Height="26" VerticalAlignment="Bottom" Grid.Column="1">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/darkbotton.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btn_resume_Copy" FontFamily="{DynamicResource Product Sans}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="84" Height="26" VerticalAlignment="Bottom" Content="Ja" Foreground="White" Margin="75,0,0,0" Click="btn_resume_Copy_Click_1" Grid.Column="1">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/darkbotton.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Image Source="/warning.png" Margin="0,23,6,0" HorizontalAlignment="Right" Width="18" Height="17" VerticalAlignment="Top"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

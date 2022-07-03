@@ -1,0 +1,100 @@
+﻿<Window x:Class="CheckNotiz_Pro.ConvertAssistant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckNotiz_Pro"
+        mc:Ignorable="d"
+        Title="CheckNotiz Konvertierungsassistent" Height="352" Width="827" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}"
+        WindowStartupLocation="CenterScreen" Icon="/settings_white.png" ResizeMode="NoResize" x:Name="window">
+    <Grid Margin="2,0,-2,0">
+        <Grid RenderTransformOrigin="0.5,0.5" Margin="10,7,10,7">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="windowScale" ScaleY="0.5" ScaleX="0.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.Effect>
+                <DropShadowEffect Direction="270" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Border x:Name="titlebar" Background="Black" CornerRadius="10,10,0,0" MouseDown="titlebar_MouseDown" Height="46" VerticalAlignment="Top">
+                <Grid>
+                    <Image Source="/settings_white.png" HorizontalAlignment="Left" Width="19" Margin="7,7,0,0" Height="21" VerticalAlignment="Top"></Image>
+                    <Image x:Name="closeWIndow" Source="/closebutton.png" Margin="0,9,9,0" HorizontalAlignment="Right" Width="15" MouseUp="closeWIndow_MouseUp" Height="15" VerticalAlignment="Top"/>
+                    <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Foreground="White" HorizontalAlignment="Center" Width="238" Margin="0,8,0,0" FontSize="14" Height="18" VerticalAlignment="Top"><Run Language="de-de" Text="CheckNotiz Konvertierungsassistent"/></TextBlock>
+                </Grid>
+            </Border>
+            <Border x:Name="content" Margin="0,33,0,0" Background="White" CornerRadius="10">
+                <ScrollViewer Margin="0,4,4,3" Background="Transparent">
+                    <Grid>
+                        <Border Margin="3,0,0,520">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                            <RotateTransform Angle="-90" CenterX="0.5" CenterY="0.5"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Color="White"/>
+                                    <GradientStop Color="#FFFFF2B5" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid Height="161" Margin="1,0,-1,0">
+                                <Grid Margin="0,0,0,21">
+                                    <Image Source="/checknotiz.png" Height="51" VerticalAlignment="Top" HorizontalAlignment="Right" Width="174" Margin="0,55,269,0" RenderTransformOrigin="0.5,0.5">
+                                        <Image.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="-6"/>
+                                            </TransformGroup>
+                                        </Image.RenderTransform>
+                                    </Image>
+                                    <Image Source="/probanner.png" Height="51" VerticalAlignment="Top" HorizontalAlignment="Right" Width="174" Margin="0,53,6,0" RenderTransformOrigin="0.5,0.5">
+                                        <Image.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="6"/>
+                                            </TransformGroup>
+                                        </Image.RenderTransform>
+                                    </Image>
+                                    <Image Source="/Pfeil.png" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="174" Margin="460,34,0,0" RenderTransformOrigin="0.5,0.5">
+                                        <Image.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1"/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Image.RenderTransform>
+                                    </Image>
+                                    <TextBlock FontFamily="{DynamicResource Product Sans}" HorizontalAlignment="Left" Width="365" Margin="10,10,0,0" FontSize="20" Height="106" VerticalAlignment="Top"><Run Text="Konvertieren Sie ihre CheckNotiz-Datei"/><LineBreak/><Run Text="zur CheckNotiz Professional-Datei"/></TextBlock>
+                                    <TextBlock FontFamily="{DynamicResource Product Sans}" HorizontalAlignment="Left" Width="351" Margin="10,63,0,0" FontSize="12" Height="60" VerticalAlignment="Top"><Run Text="Ihre Speicherdatei"/><Run Text="en"/><Run Text=" w"/><Run Text="erden "/><Run Text="lokal auf ihrer Festplatte gespeichert"/><Run Text="."/><LineBreak/><Run Text="Konvertieren Sie ihre alte &quot;CheckNotiz-Base&quot; zu einer"/><LineBreak/><Run Text="&quot;CheckNotiz-Professional&quot;-Datei, um ihre alten Notizen fortführe"/><Run Language="de-de" Text="n"/><Run/><LineBreak/><Run Text="zu können."/></TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <Button Margin="0,215,0,436" BorderBrush="{x:Null}" Content="Datei umkonvertiern" Foreground="White" Padding="1,-1,1,1" HorizontalAlignment="Center" Width="137" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/darkbotton.png"/>
+                            </Button.Background>
+                        </Button>
+                        <TextBlock FontFamily="{DynamicResource Product Sans}" HorizontalAlignment="Center" Width="224" Margin="0,189,0,0" FontSize="12" Height="16" VerticalAlignment="Top"><Run Text="Starten Sie jetzt die 1-Klick-Konvertierung"/><Run Language="de-de" Text="!"/></TextBlock>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="windowScale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.1" />
+                        <DoubleAnimation Storyboard.TargetName="windowScale" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+    </Grid>
+</Window>

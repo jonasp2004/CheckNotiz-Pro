@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace CheckNotiz_Pro
 {
@@ -27,6 +18,8 @@ namespace CheckNotiz_Pro
         }
 
         public Settings() {
+            Properties.Settings.Default.resetApplication = false;
+            Properties.Settings.Default.Save();
             InitializeComponent();
             LoadSettings();
             GarbageCollector();
@@ -43,7 +36,6 @@ namespace CheckNotiz_Pro
                 useIDsWithoutPWD.IsChecked = true; }
             if (Properties.Settings.Default.useGarbageCollector == true) {
                 useGarbageCollector.IsChecked = true; }
-            saveFileLocation.Text = Properties.Settings.Default.saveFileLocation;
             if (Properties.Settings.Default.useBackdropBlur == true) {
                 useBackdropBlur.IsChecked = true; }
             GarbageCollector();
@@ -61,14 +53,14 @@ namespace CheckNotiz_Pro
         private void useOwnServer_Unchecked(object sender, RoutedEventArgs e) {
             btn_configureServer.IsEnabled = false;
             Properties.Settings.Default.useOwnServer = false;
-            Properties.Settings.Default.ip = "10.33.156.250";
-            Properties.Settings.Default.database = "checknotiz_pro";
+            Properties.Settings.Default.ip = "sql11.freemysqlhosting.net";
+            Properties.Settings.Default.database = "sql11503728";
             Properties.Settings.Default.table = "shared";
             Properties.Settings.Default.col1 = "id";
             Properties.Settings.Default.col2 = "note";
             Properties.Settings.Default.col3 = "passwrd";
-            Properties.Settings.Default.user = "prouser";
-            Properties.Settings.Default.passwrd = "st4rk3sP4s2w0rt";
+            Properties.Settings.Default.user = "sql11503728";
+            Properties.Settings.Default.passwrd = "Bi6RysUDIU";
             Properties.Settings.Default.useOwnServer = false;
             Properties.Settings.Default.Save();
             GarbageCollector();
@@ -123,16 +115,6 @@ namespace CheckNotiz_Pro
             GarbageCollector();
         }
 
-        private void saveFileLocation_TextChanged(object sender, TextChangedEventArgs e) {
-            Properties.Settings.Default.saveFileLocation = saveFileLocation.Text;
-            Properties.Settings.Default.Save();
-            GarbageCollector();
-        }
-
-        private void useStandardSaveFile_MouseUp(object sender, MouseButtonEventArgs e) {
-            saveFileLocation.Text = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\checknotiz\";
-        }
-
         private void useBackdropBlur_Checked(object sender, RoutedEventArgs e) {
             Properties.Settings.Default.useBackdropBlur = true;
             Properties.Settings.Default.Save();
@@ -149,6 +131,31 @@ namespace CheckNotiz_Pro
         {
             ServerConnection serverconfig = new();
             serverconfig.ShowDialog();
+        }
+
+        private void btn_resetApplication_Click(object sender, RoutedEventArgs e)
+        {
+            ResetApplication reset = new();
+            reset.ShowDialog();
+        }
+
+        private void btn_convert_Click(object sender, RoutedEventArgs e)
+        {
+            ConvertAssistant convert = new();
+            convert.Show();
+        }
+
+        private void window_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.resetApplication == true)
+            {
+                GarbageCollector();
+                string dir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/checknotiz";
+                Directory.Delete(dir, true);
+                Properties.Settings.Default.Reset();
+                MessageBox.Show("Das Programm wurde zurückgesetzt. Die Anwendung wird nun geschlossen.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                System.Windows.Application.Current.Shutdown();
+            }
         }
     }
 }

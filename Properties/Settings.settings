@@ -6,16 +6,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="database" Type="System.String" Scope="User">
-      <Value Profile="(Default)">checknotiz_pro</Value>
+      <Value Profile="(Default)">sql11503728</Value>
     </Setting>
     <Setting Name="ip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.33.156.250</Value>
+      <Value Profile="(Default)">sql11.freemysqlhosting.net</Value>
     </Setting>
     <Setting Name="passwrd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">st4rk3sP4s2w0rt</Value>
+      <Value Profile="(Default)">Bi6RysUDIU</Value>
     </Setting>
     <Setting Name="user" Type="System.String" Scope="User">
-      <Value Profile="(Default)">prouser</Value>
+      <Value Profile="(Default)">sql11503728</Value>
     </Setting>
     <Setting Name="table" Type="System.String" Scope="User">
       <Value Profile="(Default)">shared</Value>
@@ -57,6 +57,9 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="setupDone" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="resetApplication" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

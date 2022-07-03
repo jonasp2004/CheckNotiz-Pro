@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CheckNotiz_Pro"
         mc:Ignorable="d"
-        Title="CheckNotiz Pro" Height="400" Width="813" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Icon="/notes.png"
+        Title="CheckNotiz Pro" Height="400" Width="813" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Icon="/notebook.png"
         ResizeMode="CanResizeWithGrip" MinWidth="813" MinHeight="300" WindowStartupLocation="CenterScreen" SizeChanged="window_SizeChanged"
         >
     <Grid>
@@ -23,8 +23,8 @@
                     <ScaleTransform x:Name="windowScale" ScaleX="0.1" ScaleY="0.1"/>
                 </TransformGroup>
             </Border.RenderTransform>
-            <Grid MouseDown="Grid_MouseDown">
-                <Border x:Name="titlebar" Height="45" VerticalAlignment="Top" Background="Black" CornerRadius="10,10,0,0">
+            <Grid>
+                <Border x:Name="titlebar" Height="45" VerticalAlignment="Top" Background="Black" CornerRadius="10,10,0,0" MouseDown="Grid_MouseDown">
                     <Grid>
                         <Border x:Name="TitleBarSettingsButton" Height="27" Width="100" Margin="0,4,74,0" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFFFF2B5" CornerRadius="5" MouseUp="TitleBarSettingsButton_MouseUp">
                             <Grid>
@@ -32,7 +32,7 @@
                                 <Image Margin="7,8,0,7" Source="/settings.png" HorizontalAlignment="Left" Width="12"></Image>
                             </Grid>
                         </Border>
-                        <Image Source="/notes.png" HorizontalAlignment="Left" Width="15" Margin="10,10,0,0" Height="15" VerticalAlignment="Top"></Image>
+                        <Image Source="/notebook.png" HorizontalAlignment="Left" Width="15" Margin="10,10,0,0" Height="15" VerticalAlignment="Top"></Image>
                         <Image x:Name="closeWIndow" Source="/closebutton.png" Margin="0,10,10,0" MouseUp="closeWIndow_MouseUp" HorizontalAlignment="Right" Width="15" Height="16" VerticalAlignment="Top"></Image>
                         <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Foreground="White" HorizontalAlignment="Center" Width="100" FontSize="14" Padding="0,10,0,0" Height="33" VerticalAlignment="Top"><Run Text="CheckNotiz"/><Run Language="de-de" Text=" Pro"/></TextBlock>
                         <Image x:Name="minimizeWindow" Source="/minimizebutton.png" Margin="0,10,53,0" MouseUp="minimizeWindow_MouseUp" HorizontalAlignment="Right" Width="15" Height="16" VerticalAlignment="Top"/>
@@ -41,7 +41,7 @@
                 </Border>
                 <Border CornerRadius="10" Background="#FFFFF2B5" Margin="0,36,0,0">
                     <Grid x:Name="content">
-                        <Image Source="/checknotiz.png" Margin="10,10,0,0" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" Width="199"></Image>
+                        <Image Source="/probanner.png" Margin="10,20,0,0" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" Width="199"></Image>
                         <Button x:Name="btn_showNewNoteDialog" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Margin="10,102,0,0" BorderBrush="{x:Null}" Click="btn_showNewNoteDialog_Click">
                             <Button.Background>
                                 <ImageBrush ImageSource="/darkbotton.png"/>
@@ -69,7 +69,7 @@
                                 <TextBlock FontFamily="{DynamicResource Product Sans}" FontSize="14" Foreground="White" HorizontalAlignment="Left" Width="106" Margin="19,1,0,1"><Run Language="de-de" Text="Liste aktualiseren"/></TextBlock>
                             </Grid>
                         </Button>
-                        <Button x:Name="btn_viewOnlineConnectPopup" Height="30" VerticalAlignment="Top" Margin="0,102,10,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="192" Click="btn_viewOnlineConnectPopup_Click">
+                        <Button x:Name="btn_viewOnlineConnectPopup" Height="30" VerticalAlignment="Top" Margin="0,102,10,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="205" Click="btn_viewOnlineConnectPopup_Click">
                             <Button.Background>
                                 <ImageBrush ImageSource="/darkbotton.png"/>
                             </Button.Background>
@@ -185,8 +185,6 @@
                             </Button>
 
                         </Grid>
-                        <TextBlock x:Name="resetSettings" FontFamily="{DynamicResource Product Sans}" FontSize="14" Foreground="#FF157F00" HorizontalAlignment="Left" Width="23" Margin="102,56,0,0" FontWeight="Bold" Height="14" VerticalAlignment="Top" MouseDown="resetSettings_MouseDown"><Run Language="de-de" Text="Pro"/></TextBlock>
-                        <TextBlock x:Name="startSetup" FontFamily="{DynamicResource Product Sans}" FontSize="14" Foreground="#FF157F00" HorizontalAlignment="Left" Width="55" Margin="123,56,0,0" FontWeight="Normal" Height="14" VerticalAlignment="Top" MouseUp="startSetup_MouseUp"><Run Language="de-de" Text="fessional"/></TextBlock>
                     </Grid>
                 </Border>
             </Grid>

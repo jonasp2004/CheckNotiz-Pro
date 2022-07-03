@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CheckNotiz_Pro"
         mc:Ignorable="d"
-         Title="Einstellungen" Height="415" Width="402" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}"
-        WindowStartupLocation="CenterScreen" Icon="/settings_white.png" ResizeMode="NoResize">
+        Title="Einstellungen" Height="360" Width="402" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}"
+        WindowStartupLocation="CenterScreen" Icon="/settings_white.png" ResizeMode="NoResize" GotFocus="window_GotFocus">
     <Grid>
         <Grid RenderTransformOrigin="0.5,0.5" Margin="10,7,10,7">
             <Grid.RenderTransform>
@@ -20,16 +20,16 @@
             <Grid.Effect>
                 <DropShadowEffect Direction="270" ShadowDepth="0"/>
             </Grid.Effect>
-            <Border x:Name="titlebar" Background="Black" CornerRadius="5,5,0,0" MouseDown="titlebar_MouseDown" Height="46" VerticalAlignment="Top">
+            <Border x:Name="titlebar" Background="Black" CornerRadius="10,10,0,0" MouseDown="titlebar_MouseDown" Height="46" VerticalAlignment="Top">
                 <Grid>
                     <Image Source="/settings_white.png" HorizontalAlignment="Left" Width="19" Margin="7,7,0,0" Height="21" VerticalAlignment="Top"></Image>
                     <Image x:Name="closeWIndow" Source="/closebutton.png" Margin="0,9,9,0" HorizontalAlignment="Right" Width="15" MouseUp="closeWIndow_MouseUp" Height="15" VerticalAlignment="Top"/>
                     <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Foreground="White" HorizontalAlignment="Center" Width="89" Margin="0,8,0,0" FontSize="14" Height="18" VerticalAlignment="Top"><Run Text="E"/><Run Language="de-de" Text="i"/><Run Text="nstellungen"/></TextBlock>
                 </Grid>
             </Border>
-            <Border x:Name="content" Margin="0,33,0,0" Background="White" CornerRadius="5">
-                <ScrollViewer Margin="0,0,4,0" Background="Transparent">
-                    <Grid>
+            <Border x:Name="content" Margin="0,33,0,0" Background="White" CornerRadius="10">
+                <ScrollViewer Margin="0,4,4,3" Background="Transparent">
+                    <Grid Height="693">
                         <Image Source="/dns.png" Margin="10,10,0,0" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top"></Image>
                         <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Margin="41,12,0,0" Text="Server" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Width="60" Height="22" VerticalAlignment="Top"></TextBlock>
                         <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="41,39,0,0" HorizontalAlignment="Left" Width="314" Height="45" VerticalAlignment="Top" Foreground="#FF4C4C4C"><Run Text="Verbinden Sie sich mit ihrem MySQL-Server."/><LineBreak/><Run Text="Sie können "/><Run Text="auch "/><Run Text="unsere Server verwenden und müssen"/><Run Text=" "/><Run Text="sich "/><LineBreak/><Run Text="um"/><Run Language="de-de" Text=" nichts weiter kümmern."/></TextBlock>
@@ -55,17 +55,28 @@
                         <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="61,361,0,0" HorizontalAlignment="Left" Width="285" Height="32" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FF4C4C4C"><Run Text="Kann den Speicherverbrauch verringern"/><Run Text=". "/><Run Language="de-de"/><LineBreak/><Run Language="de-de" Text="(Experimentiel)"/></TextBlock>
                         <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="61,417,0,0" HorizontalAlignment="Left" Width="286" Height="32" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FF4C4C4C"><Run Language="de-de" Text="Zeigt ein Vollbildfenster mit &quot;Rauhes Glas&quot;-Optik."/><LineBreak/><Run Language="de-de" Text="Kann sich auf die Leistung auswirken."/></TextBlock>
                         <CheckBox x:Name="useBackdropBlur" FontFamily="{DynamicResource Product Sans}" Content="Weichzeichner bei Vollbilddialogen verwenden" HorizontalAlignment="Left" Width="292" Height="17" VerticalAlignment="Top" Margin="38,397,0,0" Checked="useBackdropBlur_Checked" Unchecked="useBackdropBlur_Unchecked"/>
-                        <TextBlock x:Name="useGarbageCollector1" FontFamily="{DynamicResource Product Sans}" Margin="41,474,222,0" Height="16" VerticalAlignment="Top" FontWeight="Bold" Foreground="Black"><Run Text="Dateispeicherort"/><Run Language="de-de" Text=": "/></TextBlock>
-                        <TextBox x:Name="saveFileLocation" FontFamily="{DynamicResource Product Sans}" Margin="139,470,10,0" BorderBrush="{x:Null}" FontSize="14" Padding="0,0,0,0" Height="24" VerticalAlignment="Top" TextChanged="saveFileLocation_TextChanged">
-                            <TextBox.Effect>
-                                <BlurEffect x:Name="blur" Radius="0"/>
-                            </TextBox.Effect>
-                            <TextBox.Background>
-                                <ImageBrush ImageSource="/inputbox.png"/>
-                            </TextBox.Background>
-                        </TextBox>
-                        <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="41,499,0,0" HorizontalAlignment="Left" Width="286" Height="15" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FF4C4C4C"><Run Language="de-de" Text="Legt fest, wo die Speicherdatei abgelegt werden soll."/></TextBlock>
-                        <TextBlock x:Name="useStandardSaveFile" FontFamily="{DynamicResource Product Sans}" Margin="41,514,0,0" HorizontalAlignment="Left" Width="113" Height="17" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FF009CFF" TextDecorations="Underline" Cursor="Hand" MouseUp="useStandardSaveFile_MouseUp"><Run Language="de-de" Text="Standard verwenden"/></TextBlock>
+                        <Image Source="/tools.png" Margin="10,462,0,0" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top"/>
+                        <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Margin="41,464,0,0" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" Width="185" Height="22" VerticalAlignment="Top"><Run Language="de-de" Text="Fehlerbehebung"/></TextBlock>
+                        <Button x:Name="btn_resetApplication" Margin="41,576,0,0" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171" BorderBrush="{x:Null}" Click="btn_resetApplication_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/darkbotton.png"/>
+                            </Button.Background>
+                            <Grid>
+                                <TextBlock Foreground="White" Text="Programm zurücksetzen" FontFamily="{DynamicResource Product Sans}" FontSize="14"></TextBlock>
+                            </Grid>
+                        </Button>
+                        <Image Source="/warning.png" Margin="217,582,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="27"></Image>
+                        <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="41,617,0,0" HorizontalAlignment="Left" Width="286" Height="32" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FFFF6262"><Run Language="de-de" Text="Löscht ALLE Inhalte der Anwendung, inklusive der"/><LineBreak/><Run Language="de-de" Text="Notiz-Speicherdatei."/></TextBlock>
+                        <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="41,654,34,0" Height="31" VerticalAlignment="Top" FontWeight="Normal" Foreground="Black" TextAlignment="Center"><Run Language="de-de" Text="©2022 JPTools"/><LineBreak/><Run Language="de-de" Text="Alle Rechte vorbehalten"/><LineBreak/><Span FontFamily="Product Sans" FontSize="15.3333333333333"/></TextBlock>
+                        <Button x:Name="btn_convert" Margin="41,491,0,0" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" BorderBrush="{x:Null}" Click="btn_convert_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/darkbotton.png"/>
+                            </Button.Background>
+                            <Grid>
+                                <TextBlock Foreground="White" FontFamily="{DynamicResource Product Sans}" FontSize="14"><Run Language="de-de" Text="Speicherdatei konvertieren"/></TextBlock>
+                            </Grid>
+                        </Button>
+                        <TextBlock FontFamily="{DynamicResource Product Sans}" Margin="41,530,0,0" HorizontalAlignment="Left" Width="286" Height="32" VerticalAlignment="Top" FontWeight="Normal" Foreground="#FF4C4C4C"><Run Language="de-de" Text="Kovertiert eine Speicherdatei von der kostenlosen"/><LineBreak/><Run Language="de-de" Text="Version des Programms in die Professional-Version"/></TextBlock>
                     </Grid>
                 </ScrollViewer>
             </Border>

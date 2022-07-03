@@ -25,6 +25,11 @@ namespace CheckNotiz_Pro {
             ";database=" + Properties.Settings.Default.database;
 
         public MainWindow() {
+            if (Properties.Settings.Default.setupDone == false) {
+                Setup setup = new();
+                setup.ShowDialog();
+            } else { 
+
             InitializeComponent();
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/checknotiz";
             try {
@@ -34,6 +39,7 @@ namespace CheckNotiz_Pro {
                 MessageBox.Show("Die Dateien wurden entpackt. Starten Sie bitte das Programm erneut, um fortzufahren.", "Alles fertig!", MessageBoxButton.OK, MessageBoxImage.Information);
             } finally { }
             GarbageCollector();
+            }
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e) {

@@ -13,41 +13,49 @@ namespace CheckNotiz_Pro
     /// </summary>
     public partial class delID : Window
     {
+
+        private void GarbageCollector() {
+            if (Properties.Settings.Default.useGarbageCollector == true) {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
         public string cs = @"server=" + Properties.Settings.Default.ip +
                 ";userid=" + Properties.Settings.Default.user +
                 ";password=" + Properties.Settings.Default.passwrd +
                 ";database=" + Properties.Settings.Default.database;
 
-        public delID()
-        {
+        public delID() {
             InitializeComponent();
+            GarbageCollector();
         }
 
-        private void btn_cancel_Click(object sender, RoutedEventArgs e)
-        {
+        private void btn_cancel_Click(object sender, RoutedEventArgs e) {
             Close();
         }
 
-        private void btn_resume_Click(object sender, RoutedEventArgs e)
-        {
-            DeletionRequest dialog = new();
-            dialog.ShowDialog();
+        private void btn_resume_Click(object sender, RoutedEventArgs e) {
+            if (id_textbox.Text == "" && Properties.Settings.Default.useIDsWithoutPWD == false) {
+                MessageBox.Show("Bitte geben Sie eine ID-Nummer ein!", "Warnung", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            } else {
+                DeletionRequest dialog = new();
+                dialog.ShowDialog();
+            }
 
             if (Properties.Settings.Default.clearID == true)
             {
                 Properties.Settings.Default.clearID = false;
                 Properties.Settings.Default.Save();
             }
-
-
+            GarbageCollector();
         }
 
-        private void titlebar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
+        private void titlebar_MouseDown(object sender, MouseButtonEventArgs e) {
+            if (e.ChangedButton == MouseButton.Left) {
                 window.DragMove();
             }
+            GarbageCollector();
         }
 
         private void window_Activated(object sender, EventArgs e) {
@@ -93,9 +101,10 @@ namespace CheckNotiz_Pro
                     MessageBox.Show("Ein Fehler ist aufgetreten. Der Server konnte nicht kontaktiert werden. Stopp!");
                 }
             }
+            GarbageCollector();
         }
 
         private void pw_textbox_LostFocus(object sender, RoutedEventArgs e) { if (pw_textbox.Text != "" && Properties.Settings.Default.blurPasswdBoxes == true) { blur.Radius = 15; } }
-        private void pw_textbox_GotFocus(object sender, RoutedEventArgs e) { blur.Radius = 0; }
+        private void pw_textbox_GotFocus(object sender, RoutedEventArgs e) { blur.Radius = 0; GarbageCollector(); }
     }
 }

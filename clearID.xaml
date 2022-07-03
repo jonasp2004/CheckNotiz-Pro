@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CheckNotiz_Pro"
         mc:Ignorable="d"
-        Title="ID leeren" Height="239" Width="402" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" Activated="window_Activated">
+        Title="ID leeren" Height="239" Width="402" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" Activated="window_Activated" Icon="/notebook.png">
     <Grid>
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="382" Height="234" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
@@ -19,13 +19,13 @@
             <Grid.Effect>
                 <DropShadowEffect Direction="270" ShadowDepth="0"/>
             </Grid.Effect>
-            <Border x:Name="titlebar" CornerRadius="5,5,0,0" Height="46" VerticalAlignment="Top" MouseDown="titlebar_MouseDown" Background="Black">
+            <Border x:Name="titlebar" CornerRadius="10,10,0,0" Height="46" VerticalAlignment="Top" MouseDown="titlebar_MouseDown" Background="Black">
                 <Grid>
-                    <Image Source="/notes.png" HorizontalAlignment="Left" Width="19" Margin="7,7,0,0" Height="21" VerticalAlignment="Top"></Image>
+                    <Image Source="/notebook.png" HorizontalAlignment="Left" Width="19" Margin="7,7,0,0" Height="21" VerticalAlignment="Top"></Image>
                     <TextBlock FontFamily="{DynamicResource Product Sans Bold}" Foreground="White" HorizontalAlignment="Center" Width="57" Margin="0,8,0,0" FontSize="14" Height="18" VerticalAlignment="Top" Text="ID leeren"/>
                 </Grid>
             </Border>
-            <Border x:Name="content" Margin="0,33,0,0" Background="White" CornerRadius="5">
+            <Border x:Name="content" Margin="0,33,0,0" Background="White" CornerRadius="10">
                 <Grid>
                     <TextBlock FontFamily="{DynamicResource Product Sans}"  HorizontalAlignment="Left" Width="288" FontSize="16" Height="39" VerticalAlignment="Top" Margin="10,25,0,0"><Run Text="Geben Sie ID-Nummer und"/><LineBreak/><Run Text="das zugehörige Passwort ein!"/></TextBlock>
                     <TextBlock FontFamily="{DynamicResource Product Sans}"  HorizontalAlignment="Left" Width="87" FontSize="12" Height="15" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"><Run Language="de-de" Text="ID-Inhalt leeren"/></TextBlock>

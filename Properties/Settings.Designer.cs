@@ -37,7 +37,7 @@ namespace CheckNotiz_Pro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("checknotiz_pro")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sql11503728")]
         public string database {
             get {
                 return ((string)(this["database"]));
@@ -49,7 +49,7 @@ namespace CheckNotiz_Pro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.33.156.250")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sql11.freemysqlhosting.net")]
         public string ip {
             get {
                 return ((string)(this["ip"]));
@@ -61,7 +61,7 @@ namespace CheckNotiz_Pro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("st4rk3sP4s2w0rt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bi6RysUDIU")]
         public string passwrd {
             get {
                 return ((string)(this["passwrd"]));
@@ -73,7 +73,7 @@ namespace CheckNotiz_Pro.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("prouser")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sql11503728")]
         public string user {
             get {
                 return ((string)(this["user"]));
@@ -248,6 +248,18 @@ namespace CheckNotiz_Pro.Properties {
             }
             set {
                 this["setupDone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool resetApplication {
+            get {
+                return ((bool)(this["resetApplication"]));
+            }
+            set {
+                this["resetApplication"] = value;
             }
         }
     }
